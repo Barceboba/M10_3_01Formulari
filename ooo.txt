@@ -1,0 +1,9 @@
+1.-Nom               requerit      mínim de 6 i màxim de 13 dígits    res més text
+
+2.-Mòbil              requerit      res més números   ^(0034|\+34)?(\d{3})[- ]?(\d{2})[- ]?(\d)[- ]?(\d)[- ]?(\d{2})$
+
+3.-Codi Postal   requerit      res més números   var matches = str.match(/\b\d{5}\b/g);
+
+4.-E-mail            requerit      validant que sigui un mail   regExpemail: /[\wñç._-]+@[\wñç._-]+(?:\.[\w]+)+/
+
+5.-Botó  Envia
