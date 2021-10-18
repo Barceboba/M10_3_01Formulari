@@ -7,17 +7,17 @@ export default {
             postal: '',
             correu: '',
 
-            errorObligatori:'Aquest camp és obligatori.',
-            errorNom:'El nom ha de tenir un mínim de 6 caràcters i un màxim de 13 caràcters.',
-            errorNumeros:'El nom no pot incloure números.',
-            errorSolsNumeros:'El camp només pot incloure números.',
-            errorCorreu:'Introduir correu electrònic vàlid.',
+            errorObligatori: 'Aquest camp és obligatori.',
+            errorNom: 'El nom ha de tenir un mínim de 6 caràcters i un màxim de 13 caràcters.',
+            errorNumeros: 'El nom no pot incloure números.',
+            errorSolsNumeros: 'El camp només pot incloure números.',
+            errorCorreu: 'Introduir correu electrònic vàlid.',
 
 
-            anom:[],
-            amobil:[],
-            apostal:[],
-            acorreu:[],
+            anom: [],
+            amobil: [],
+            apostal: [],
+            acorreu: [],
 
             regExpeCorreu: /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/,
 
@@ -26,10 +26,10 @@ export default {
     },
 
     methods: {
-        Validar () {
+        Validar() {
             //Validació nom
-            this.anom=[];
-            if(!this.nom) {
+            this.anom = [];
+            if (!this.nom) {
                 this.anom.push(this.errorObligatori);
             } if (this.nom.length < 6 || this.nom.length > 13) {
                 this.anom.push(this.errorNom);
@@ -38,30 +38,30 @@ export default {
             }
 
             //Validació mobil
-            this.amobil=[];
-            if(!this.mobil) {
+            this.amobil = [];
+            if (!this.mobil) {
                 this.amobil.push(this.errorObligatori);
             } else if (isNaN(this.mobil)) {
                 this.amobil.push(this.errorSolsNumeros);
             }
 
             //Validació Codi Postal
-            this.apostal=[];
-            if(!this.postal) {
+            this.apostal = [];
+            if (!this.postal) {
                 this.apostal.push(this.errorObligatori);
             } else if (isNaN(this.postal)) {
                 this.apostal.push(this.errorSolsNumeros);
             }
 
             //Validació Correu electrònic
-            this.acorreu=[];
-            if(!this.correu) {
+            this.acorreu = [];
+            if (!this.correu) {
                 this.acorreu.push(this.errorObligatori);
-            } else if (!this.regExpeCorreu.test(this.correu)) 
-                            this.acorreu.push(this.correu);
-            }
-        },
-    }
+            } else if (!this.regExpeCorreu.test(this.correu))
+                this.acorreu.push(this.errorCorreu);
+        }
+    },
+}
 
 
 
