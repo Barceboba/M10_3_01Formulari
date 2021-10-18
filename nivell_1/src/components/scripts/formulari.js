@@ -1,11 +1,72 @@
 export default {
     name: 'Formulari',
-    props: {
-        msg: String
-    }
-}
+    data() {
+        return {
+            nom: '',
+            mobil: '',
+            postal: '',
+            correu: '',
 
-const formulari =document.getElementById('formulari');
+            errorObligatori:'Aquest camp és obligatori.',
+            errorNom:'El nom ha de tenir un mínim de 6 caràcters i un màxim de 13 caràcters.',
+            errorNumeros:'El nom no pot incloure números.',
+            errorSolsNumeros:'El camp només pot incloure números.',
+            errorCorreu:'Introduir correu electrònic vàlid.',
+
+
+            anom:[],
+            amobil:[],
+            apostal:[],
+            acorreu:[],
+
+            regExpeCorreu: /[\w._-]+@[\wñ._-]+(?:\.[\w]+)+/,
+
+
+        }
+    },
+
+    methods: {
+        Validar () {
+            //Validació nom
+            this.anom=[];
+            if(!this.nom) {
+                this.anom.push(this.errorObligatori);
+            } if (this.nom.length < 6 || this.nom.length > 13) {
+                this.anom.push(this.errorNom);
+            } if (/[0-9]/.test(this.nom)) {
+                this.anom.push(this.errorNumeros);
+            }
+
+            //Validació mobil
+            this.amobil=[];
+            if(!this.mobil) {
+                this.amobil.push(this.errorObligatori);
+            } else if (isNaN(this.mobil)) {
+                this.amobil.push(this.errorSolsNumeros);
+            }
+
+            //Validació Codi Postal
+            this.apostal=[];
+            if(!this.postal) {
+                this.apostal.push(this.errorObligatori);
+            } else if (isNaN(this.postal)) {
+                this.apostal.push(this.errorSolsNumeros);
+            }
+
+            //Validació Correu electrònic
+            this.acorreu=[];
+            if(!this.correu) {
+                this.acorreu.push(this.errorObligatori);
+            } else if (!this.regExpeCorreu.test(this.correu)) 
+                            this.acorreu.push(this.correu);
+            }
+        },
+    }
+
+
+
+
+/* const formulari =document.getElementById('formulari');
 const inputs = document.querySelectorAll('#formulari input');
 const expresions = {
     nom: /^[a-zA-ZÀ-ÿ\s]{6,13}$/, // Nom de 6 a 13 todo pagado
@@ -34,12 +95,12 @@ const validaFormulari = (e) => {
         case "postal":
             validaCamps(expresions.postal, e.target, 'postal');
             break;
-            
+
         case "correu":
             validaCamps(expresions.correu, e.target, 'correu');
             break;
-            
-    } 
+
+    }
 }
 
 const validaCamps = (expresio, input, camp) => {
@@ -68,7 +129,7 @@ inputs.forEach((input) => {
 
 formulari.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     if (camps.nom && camps.mobil && camps.postal && camps.mail){
         formulari.reset();
         document.getElementById('formulari__missatge-exit').classList.add('formulari__missatge-exit-actiu');
@@ -81,5 +142,5 @@ formulari.addEventListener('submit', (e) => {
     }else{
         document.getElementById('formulari__missatge').classList.add('formulari__missatge-actiu');
     }
-    
-});
+
+}); */
