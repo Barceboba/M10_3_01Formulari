@@ -5,7 +5,7 @@
       <!-- Grup nom -->
 
       <label for="fname">Faciliti el seu nom </label>
-      <input type="text" id="fname" name="nom" v-model.trim="nom"><br>
+      <input type="text" id="fname" name="nom" v-model.trim="nom" placeholder="Sandokan"><br>
 
       <span v-for="errorNom in anom" :key="errorNom.id"> {{ errorNom }}</span><br>
     <!--   <div class="formulari__grup" id="grup__usuari">
@@ -27,9 +27,9 @@
 
       <!-- Grup mobil -->
       <label for="lmobil">Faciliti el seu mòbil </label>
-      <input type="tel" id="lmobil" name="mobil" v-model.trim.number="mobil"><br>
+      <input type="text" id="lmobil" name="mobil" v-model.trim="mobil" placeholder="666 777 888"><br>
 
-      <span v-for="errorm in amobil" :key="errorm.id"> {{ errorm  }}</span><br> 
+      <span v-for="errorm in amobil" :key="errorm.id"> {{ errorm }}</span><br> 
      <!--  <div class="formulari__grup" id="grup__mobil">
         <label for="mobil" class="formulari__label"
           >Faciliti el seu mòbil</label
@@ -52,7 +52,7 @@
       <!-- Grup codi postal -->
 
       <label for="lpostal">Faciliti el seu codi postal </label>
-      <input type="text" id="lpostal" name="lpostal" v-model.trim.number="postal"><br>
+      <input type="text" id="lpostal" name="lpostal" v-model.trim="postal" placeholder="08001"><br>
 
       <span v-for="errorCorreu in apostal" :key="errorCorreu.id"> {{ errorCorreu }}</span><br>
      <!--  <div class="formulari__grup" id="grup__postal">
@@ -77,9 +77,9 @@
       <!-- Grup correu electrònic -->
 
       <label for="lcorreu">Faciliti el seu correu electrònic </label>
-      <input type="email" id="lcorreu" name="correu" v-model.trim="correu"><br>
+      <input type="email" id="lcorreu" name="correu" v-model.trim="correu" placeholder="Sandokan@gmail.com"><br>
 
-      <span v-for="errorCorreu in acorreu" :key="errorCorreu.id"> {{ errorCorreu  }}</span><br>
+      <span v-for="errorCorreu in acorreu" :key="errorCorreu.id"> {{ errorCorreu }}</span><br>
      <!--  <div class="formulari__grup" id="grup__correu">
         <label for="correu" class="formulari__label"
           >Faciliti el seu correu electrònic</label
