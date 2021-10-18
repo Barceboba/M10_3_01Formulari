@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Formulari nivell 1</h1>
+    <h1>Formulari nivell 2</h1>
     <form @submit.prevent="Validar" novalidate="true">
       <!-- Grup nom -->
 
@@ -142,12 +142,29 @@
           Formulari enviat correctament
         </p>
       </div> -->
+
+      <!-- Grup contrasenya -->
+
+      <label for="lpass">Introduir la contrasenya desitjada </label>
+      <input type="password" id="lpass" name="pass" v-model.trim="pass" placeholder="Contrasenya"><br>
+
+      <span v-for="errorPass in apass" :key="errorPass.id"> {{ errorPass }}</span><br>
+
+      <!-- Grup RepitContraseñya -->
+
+      <label for="lrepass">Comprovació de contrasenya </label>
+      <input type="password" id="lrepass" name="repass" v-model.trim="repass" placeholder="Repeteix contrasenya"><br>
+      
+      <span v-for="erroRePass in arepass" :key="ErrorRePas.id"> {{ Errorrepass }}</span><br>
+  
+
+      <!-- Botó d'im put -->
       <input type="submit" value="Validar" class="boto" />
     </form>
   </div>
 </template>
 
-<script src="./scripts/formulari.js">
+<script src="../scripts/formulari.js">
 /* export default {
   name: 'HelloWorld',
   props: {
@@ -157,7 +174,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="./styles/formulari.css">
+<style src="../styles/formulari.css">
 /* h3 {
   margin: 40px 0 0;
 }
