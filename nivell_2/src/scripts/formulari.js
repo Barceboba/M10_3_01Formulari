@@ -7,6 +7,9 @@ export default {
             mobil: '',
             postal: '',
             correu: '',
+            //Nivell 2
+            pass: '',
+            repass: '',
 
             //Missatges error
             errorObligatori: 'Aquest camp és obligatori.',
@@ -16,17 +19,24 @@ export default {
             errorCorreu: 'Introduir correu electrònic vàlid.',
             errorPostal: 'El codi postal deu tenir cinc xifres.',
             errorMobil: 'Introduir un número de mòbil correcte.',
+            errorPass: 'Mínim de 6 i màxim de 13 dígits que contengui majúscules i minúscules.',
+            errorRePass: 'Les contrasenyes han de ser iguals.',
 
             //Array
             anom: [],
             amobil: [],
             apostal: [],
             acorreu: [],
+            //Nivell 2
+            apass: [],
+            arepass: [],
 
             //Expresions regulars
             regExpMobil: / ?(\d{3})[- ]?(\d{2})[- ]?(\d)[- ]?(\d)[- ]?(\d{2})$/gm,
             regExpCorreu: /[\wñç._-]+@[\wñç._-]+(?:\.[\w]+)+/,
             regExpPostal: /(^\d{5}$)|(^\d{}-\d{4}$)/,
+            //Nivell 2
+            regExpPass: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,13}$/,
 
 
         }
@@ -69,6 +79,23 @@ export default {
                 this.acorreu.push(this.errorObligatori);
             } else if (!this.regExpCorreu.test(this.correu))
                 this.acorreu.push(this.errorCorreu);
+
+            //NIVELL DO'S
+            //Validació pass
+            this.apass = [];
+            if (!this.pass) {
+                this.apass.push(this.errorObligatori);
+            } else if (!this.regExpPass.test(this.pass))
+                this.apass.push(this.errorPass);
+
+            //Validació pass iguals
+            this.arepass = [];
+            if (!this.repass) {
+                this.arepass.push(this.errorObligatori);
+            } else if (this.repass != this.pass)
+            this.arepass.push(this.errorRePass);
+
+
         }
     },
 }

@@ -155,7 +155,7 @@
       <label for="lrepass">Comprovació de contrasenya </label>
       <input type="password" id="lrepass" name="repass" v-model.trim="repass" placeholder="Repeteix contrasenya"><br>
       
-      <span v-for="erroRePass in arepass" :key="ErrorRePas.id"> {{ Errorrepass }}</span><br>
+      <span v-for="errorRePass in arepass" :key="errorRePass.id"> {{ errorRePass }}</span><br>
   
 
       <!-- Botó d'im put -->
